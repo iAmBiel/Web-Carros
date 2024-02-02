@@ -1,12 +1,11 @@
 import { Container } from '../../components/container'
 import { DashboardHeader } from '../../components/panelheader'
-import { FiEdit, FiTrash2 } from 'react-icons/fi'
+import { FiTrash2 } from 'react-icons/fi'
 import { useState, useEffect, useContext } from 'react'
 import { collection, getDocs, where, query, doc, deleteDoc } from 'firebase/firestore'
 import { db, storage } from '../../services/firebaseConnection'
 import { ref, deleteObject } from 'firebase/storage'
 import { AuthContext } from '../../contexts/AuthContext'
-import { useNavigate } from 'react-router-dom'
 
 interface CarProps{
   id: string;
@@ -29,7 +28,6 @@ export function Dashboard(){
 
     const [cars, setCars] = useState<CarProps[]>([])
     const { user } = useContext(AuthContext)
-    const navigate = useNavigate()
 
     useEffect(() => {
       function loadCars(){
@@ -88,10 +86,6 @@ export function Dashboard(){
       })   
     }
 
-    function handleEditCar(carId: string){
-      navigate(`/dashboard/edit/${carId}`)
-    }
-
     return(
       <Container>
         <DashboardHeader/>
@@ -103,10 +97,6 @@ export function Dashboard(){
 
               <button className='absolute bg-white w-14 h-14 rounded-full flex items-center justify-center right-2 top-2 drop-shadow' onClick={ () => handleDeleteCar(car) }>
                 <FiTrash2 size={26} color='#000'/>
-              </button>
-
-              <button className='absolute bg-white w-14 h-14 rounded-full flex items-center justify-center right-20 top-2 drop-shadow' onClick={ () => handleEditCar(car.id) }>
-                <FiEdit size={26} color='#000'/>
               </button>
 
               <img className='w-full rounded-lg mb-2 max-h-70' src={car.images[0].url}/>

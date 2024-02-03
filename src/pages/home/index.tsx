@@ -3,6 +3,9 @@ import { useState, useEffect } from "react";
 import { collection, query, getDocs, orderBy, where } from "firebase/firestore";
 import { db } from "../../services/firebaseConnection";
 import { Link } from "react-router-dom";
+import { useContext } from "react";
+import { AuthContext } from "../../contexts/AuthContext";
+import { DashboardHeader } from "../../components/panelheader";
 
 interface CarsProps{
   id:string;
@@ -26,6 +29,7 @@ export function Home(){
     const [cars, setCars] = useState<CarsProps[]>([])
     const [loadImages, setLoadImages] = useState<string[]>([])
     const [input, setInput] = useState('')
+    const { user } = useContext(AuthContext)
 
     useEffect(() => {
       
@@ -102,6 +106,8 @@ export function Home(){
     return(
       <Container>
 
+        {user && <DashboardHeader />}
+
         <section className="bg-white p-4 rounded-lg w-full max-w-3xl mx-auto flex justify-center items-center gap-2">
 
           <input
@@ -124,14 +130,14 @@ export function Home(){
         <main className="grid grid-cols-1 gap-6 md:grid-cols-2 lg:grid-cols-3">
 
           {cars.map( car => (
-              <Link to={`/car/${car.id}`} key={car.id}>
+              <Link className="hover:scale-105 transition-all" to={`/car/${car.id}`} key={car.id}>
 
-                <section className="w-full bg-white rounded-lg">
+                <section className="w-full bg-white rounded-lg ">
 
                   <div className="w-full h-72 rounded-lg bg-slate-200" style={{ display: loadImages.includes(car.id) ? 'none' : 'block'}}></div>
 
                   <img
-                    className="w-full rounded-lg mb-2 max-h-72 hover:scale-105 transition-all"
+                    className="w-full rounded-lg mb-2 max-h-72"
                     src={car.images[0].url}
                     alt="Carro"
                     onLoad={ () => handleImageLoad(car.id) }

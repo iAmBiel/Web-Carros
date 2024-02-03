@@ -1,10 +1,12 @@
-import { useEffect, useState } from "react"
+import { useEffect, useState, useContext } from "react"
+import { AuthContext } from "../../contexts/AuthContext"
 import { Container } from "../../components/container"
 import { FaWhatsapp } from "react-icons/fa"
 import { useNavigate, useParams } from "react-router-dom"
 import { getDoc, doc } from "firebase/firestore"
 import { db } from "../../services/firebaseConnection"
 import { Swiper, SwiperSlide } from "swiper/react"
+import { DashboardHeader } from "../../components/panelheader"
 
 interface CarProps{
   id: string;
@@ -31,6 +33,7 @@ interface ImagesCarProps{
 export function CarDetail(){
 
     const { id } = useParams()
+    const { user } = useContext(AuthContext)
     const [car, setCar] = useState<CarProps>()
     const [sliderPerView, setSliderPerView] = useState<number>(2);
     const navigate = useNavigate();
@@ -93,6 +96,8 @@ export function CarDetail(){
 
     return(
       <Container>
+
+        {user && <DashboardHeader />}
 
         {car && (
             <Swiper 

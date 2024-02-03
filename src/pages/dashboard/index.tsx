@@ -6,6 +6,7 @@ import { collection, getDocs, where, query, doc, deleteDoc } from 'firebase/fire
 import { db, storage } from '../../services/firebaseConnection'
 import { ref, deleteObject } from 'firebase/storage'
 import { AuthContext } from '../../contexts/AuthContext'
+import { Link } from 'react-router-dom'
 
 interface CarProps{
   id: string;
@@ -93,29 +94,33 @@ export function Dashboard(){
         <main className='grid grid-cols-1 gap-6 md:grid-cols-2 lg:grid-cols-3'>
 
           {cars.map( car => (
-            <section key={car.id} className='w-full bg-white rounded-lg relative'>
+            <section key={car.id} className='w-full bg-white rounded-lg relative hover:scale-105 transition-all'>
 
               <button className='absolute bg-white w-14 h-14 rounded-full flex items-center justify-center right-2 top-2 drop-shadow' onClick={ () => handleDeleteCar(car) }>
                 <FiTrash2 size={26} color='#000'/>
               </button>
 
-              <img className='w-full rounded-lg mb-2 max-h-70' src={car.images[0].url}/>
-              <p className='font-bold mt-1 px-2 mb-2'>{car.name}</p>
+              <Link to={`/car/${car.id}`}>
 
-              <div className='flex flex-col px-2'>
+                <img className='w-full rounded-lg mb-2 max-h-70' src={car.images[0].url}/>
+                <p className='font-bold mt-1 px-2 mb-2'>{car.name}</p>
 
-                <span className='text-zinc-700'>Ano {car.year} | {car.km} km</span>
-                <strong className='text-black font-bold mt-4'>R$ {car.price}</strong>
+                <div className='flex flex-col px-2'>
 
-              </div>
-              
-              <div className='w-full h-px bg-slate-200 my-2'></div>
+                  <span className='text-zinc-700'>Ano {car.year} | {car.km} km</span>
+                  <strong className='text-black font-bold mt-4'>R$ {car.price}</strong>
 
-              <div className='px-2 pb-2'>
+                </div>
+                
+                <div className='w-full h-px bg-slate-200 my-2'></div>
 
-                <span className='text-black'>{car.city}</span>
+                <div className='px-2 pb-2'>
 
-              </div>
+                  <span className='text-black'>{car.city}</span>
+
+                </div>
+
+              </Link>
 
             </section>
 

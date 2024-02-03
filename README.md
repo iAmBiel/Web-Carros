@@ -1,30 +1,50 @@
-# React + TypeScript + Vite
+## Web Carros
+The objective of this project is to create create a car sales platform.
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+## Technology 
 
-Currently, two official plugins are available:
+Here are the technologies used in this project.
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+* React
+* Typescript
+* Tailwind css
+* React Hook Form
 
-## Expanding the ESLint configuration
+## Services Used
 
-If you are developing a production application, we recommend updating the configuration to enable type aware lint rules:
+* Github
+* Firebase
 
-- Configure the top-level `parserOptions` property like this:
+## Project Images
 
-```js
-export default {
-  // other rules...
-  parserOptions: {
-    ecmaVersion: 'latest',
-    sourceType: 'module',
-    project: ['./tsconfig.json', './tsconfig.node.json'],
-    tsconfigRootDir: __dirname,
-  },
-}
-```
+### 1 - Sign up
 
-- Replace `plugin:@typescript-eslint/recommended` to `plugin:@typescript-eslint/recommended-type-checked` or `plugin:@typescript-eslint/strict-type-checked`
-- Optionally add `plugin:@typescript-eslint/stylistic-type-checked`
-- Install [eslint-plugin-react](https://github.com/jsx-eslint/eslint-plugin-react) and add `plugin:react/recommended` & `plugin:react/jsx-runtime` to the `extends` list
+![1](https://github.com/iAmBiel/Sistema-Chamados/assets/107372647/37db1220-c319-4aac-b0b7-9e4eefc9b8cc)
+
+### 2 - Sign in
+
+![2](https://github.com/iAmBiel/Sistema-Chamados/assets/107372647/1093f21c-cec2-4394-a54f-9e370ab0c46b)
+
+### 3 - Home
+
+![3](https://github.com/iAmBiel/Sistema-Chamados/assets/107372647/e850c829-72af-42f8-a784-cf1fc258f9ee)
+
+### 4 - Dashboard
+
+![4](https://github.com/iAmBiel/Sistema-Chamados/assets/107372647/a244ed2b-2aee-4c52-a791-019c604d2b88)
+
+### 5 - New Car
+
+![5](https://github.com/iAmBiel/Sistema-Chamados/assets/107372647/78c2b205-74b5-4864-be24-c19152be3088)
+
+### 6 - Car Detail
+
+![4](https://github.com/iAmBiel/Sistema-Chamados/assets/107372647/d5eae79b-58a5-4f7a-b531-3689888a66c9)
+
+## Authors
+
+* **Gabriel Vieira Marques** 
+
+Please follow github!
+Thanks to visiting me and good coding!
+
